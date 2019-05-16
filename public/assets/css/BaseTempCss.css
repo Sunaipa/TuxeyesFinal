@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    min-height: 100%;
+    position: relative;
+}
+.content
+{
+    max-width: 1140px;
+    margin: auto;
+}
+/** =========================================================================
+* Footer Style
+ ============================================================================*/
+
+footer{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    margin-top: 60px;
+    background-color: #101418;
+    color: #d5d5da;
+}
+.footerContent
+{
+    max-width: 1140px;
+    margin: auto;
+}
+
+.h2Base {
+    color: #d5d5da;
+    font-size: 130%;
+    margin-top: 10px;
+    text-align: center;
+}
+.hrBase{
+    border-top: 1px solid #ccc;
+    margin: 0 30%;
+    margin-bottom: 8px ;
+}
+.QuiSuisJe{
+    text-align: center;
+}
+.ContactInfo{
+    text-align: center;
+}
+/** =========================================================================
+* NavBar Style
+ ============================================================================*/
+
+.navbar-brand  span {
+    color: #fed136;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+.navbar-nav .nav-item .nav-link{
+    padding: 1em ;
+    font-size: 90%;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #d5d5da;
+}
+.navbar-nav .nav-item .nav-link:hover{color:#fed136;}
+
+.shrink {
+    margin-top: -5px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgba(16, 20, 24, 0.89);
+}
+.banner{
+    background-image:url(../image/imgBanner.jpg);
+    text-align: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 50px;
+}
+.banner-text{
+    padding:180px 0 150px 0;
+    font-size: 60px;
+    font-weight: 700;
+    color:#d5d5da;
+}
+
+
+
+/** =========================================================================
+* Mobile View
+ ============================================================================*/
+@media (max-width:768px)
+{
+    /**
+    NavBar
+     */
+    .navbar-nav{
+        background-color:#000;
+        border-top:3px solid #fed136;
+        color:#d5d5da;
+        z-index:1;
+        margin-top:5px;
+    }
+    .navbar-nav .nav-item .nav-link{
+        padding: 0.7em ;
+        font-size: 100%;
+        font-weight: 500;
+    }
+    .banner-text {
+        font-size: 25px;
+    }
+
+    /**
+    Footer
+     */
+    .h2Base{
+        font-size: small;
+    }
+    .QuiSuisJe{
+        font-size: smaller;
+        margin-left: 25%;
+        margin-right: 25%;
+    }
+    .ContactInfo{
+        font-size: smaller;
+        text-align: center;
+    }
+}
