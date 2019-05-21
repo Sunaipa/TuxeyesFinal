@@ -8,12 +8,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class IndexController extends AbstractController
 {
     /**
+     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/index", name="index")
      */
     public function index()
     {
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController',
             'page_name' => 'Consultant Réseau et Sécurité'
         ]);
     }
@@ -25,7 +25,6 @@ class IndexController extends AbstractController
     public function home()
     {
         return $this->render('index/index.html.twig', [
-            'controller_name' => 'IndexController(venu de homme)',
             'page_name' => 'Consultant Réseau et Sécurité'
     ]);
     }

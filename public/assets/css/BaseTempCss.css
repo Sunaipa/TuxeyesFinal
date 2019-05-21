@@ -40,6 +40,7 @@ footer{
     color: #d5d5da;
     font-size: 130%;
     margin-top: 10px;
+    margin-bottom: 8px;
     text-align: center;
 }
 .hrBase{
@@ -59,7 +60,7 @@ footer{
 
 .navbar-brand  span {
     color: #fed136;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 700;
     letter-spacing: 0.1em;
 }
