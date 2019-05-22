@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index!{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Compétence</h1>
+    <hr/>
+    <h2>Compétence fonctionnelle</h2>
+    <ul>
+        {% for comp in competencesFonc %}
+            <li>{{ comp.titre }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Domaines de Compétences</h2>
+    {% for comps in competences %}
+        <h3>{{ comps.categorie }}</h3>
+        <ul>
+            {% for comp in comps.competences  %}
+                <li>{{ comp.titre }}</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}

@@ -4,9 +4,9 @@
 }
 
 html, body{
-    height: 100%;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 .wrapper{
@@ -17,6 +17,11 @@ html, body{
 {
     max-width: 1140px;
     margin: auto;
+    padding-bottom: 19rem;
+}
+.espacementBottom
+{
+    padding: 1.4rem;
 }
 /** =========================================================================
 * Footer Style
@@ -24,9 +29,9 @@ html, body{
 
 footer{
     position: absolute;
+    bottom: 0;
     width: 100%;
-    height: auto;
-    margin-top: 60px;
+    height: 19rem;
     background-color: #101418;
     color: #d5d5da;
 }
@@ -39,8 +44,8 @@ footer{
 .h2Base {
     color: #d5d5da;
     font-size: 130%;
-    margin-top: 10px;
-    margin-bottom: 8px;
+    margin-top: 6%;
+    margin-bottom: 2%;
     text-align: center;
 }
 .hrBase{
@@ -52,7 +57,7 @@ footer{
     text-align: center;
 }
 .ContactInfo{
-    text-align: center;
+    text-align: left;
 }
 /** =========================================================================
 * NavBar Style
@@ -60,9 +65,9 @@ footer{
 
 .navbar-brand  span {
     color: #fed136;
-    font-size: 30px;
+    font-size: 33px;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
 }
 .navbar-nav .nav-item .nav-link{
     padding: 1em ;
@@ -124,6 +129,12 @@ footer{
     /**
     Footer
      */
+    .content{
+        padding-bottom: 34rem;
+    }
+    footer{
+        height: 34rem;
+    }
     .h2Base{
         font-size: small;
     }
@@ -134,6 +145,5 @@ footer{
     }
     .ContactInfo{
         font-size: smaller;
-        text-align: center;
     }
 }

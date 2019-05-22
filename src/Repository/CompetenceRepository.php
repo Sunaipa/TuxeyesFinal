@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\Competence;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @method Competence|null find($id, $lockMode = null, $lockVersion = null)
@@ -18,6 +19,39 @@ class CompetenceRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Competence::class);
     }
+
+    public function competenceFonc()
+    {
+        $qb = $this->createQueryBuilder("c");
+
+        $qb
+            ->innerJoin('App\Entity\TypeComp', 'tc', Join::WITH, 'tc = c.typeComp' )
+            ->where(
+                $qb->expr()->like('tc.categorie', ':competenceFonc')
+            )
+            ->setParameter('competenceFonc', 'Compétence fonctionnelle')
+            ;
+        return $qb->getQuery()->getResult();
+    }
+
+    /*
+    public function allCompSaufFonc()
+    {
+        $qb = $this->createQueryBuilder("c");
+
+        $qb
+            ->innerJoin('App\Entity\TypeComp', 'tc', Join::WITH, 'tc = c.typeComp' )
+            ->where(
+                $qb->expr()->notlike('tc.categorie', ':competenceFonc')
+            )
+            ->setParameter('competenceFonc', 'Compétence fonctionnelle')
+        ;
+
+        dump($qb->getQuery()->getSQL());
+
+        return $qb->getQuery()->getResult();
+    }
+
 
     // /**
     //  * @return Competence[] Returns an array of Competence objects

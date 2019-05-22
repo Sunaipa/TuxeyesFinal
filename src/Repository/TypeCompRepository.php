@@ -5,6 +5,7 @@ namespace App\Repository;
 use App\Entity\TypeComp;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
+use Doctrine\ORM\Query\Expr\Join;
 
 /**
  * @method TypeComp|null find($id, $lockMode = null, $lockVersion = null)
@@ -17,6 +18,16 @@ class TypeCompRepository extends ServiceEntityRepository
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, TypeComp::class);
+    }
+
+    public function allCompSaufFonc()
+    {
+        $qb = $this->createQueryBuilder("tc");
+
+        $qb
+            ->innerJoin('App\Entity\Competence', 'c', Join::WITH, 'c = tc.competences' )
+        ;
+        return $qb->getQuery()->getResult();
     }
 
     // /**
