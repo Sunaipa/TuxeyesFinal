@@ -29,12 +29,11 @@ class CompetenceRepository extends ServiceEntityRepository
             ->where(
                 $qb->expr()->like('tc.categorie', ':competenceFonc')
             )
-            ->setParameter('competenceFonc', 'Compétence fonctionnelle')
+            ->setParameter('competenceFonc', 'Catégorie n°1')
             ;
         return $qb->getQuery()->getResult();
     }
 
-    /*
     public function allCompSaufFonc()
     {
         $qb = $this->createQueryBuilder("c");

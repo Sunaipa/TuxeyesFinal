@@ -13,20 +13,27 @@ class ExpertiseController extends AbstractController
 {
     /**
      * @Route("/expertise", name="expertise")
+     * @param ExpProRepository $repoExpPro
+     * @param CompetenceRepository $repoCompetence
+     * @param TypeCompRepository $repoTypeComp
+     * @param InfoPersoRepository $repoInfoPerso
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(ExpProRepository $repoExpPro, CompetenceRepository $repoCompetence, TypeCompRepository $repoTypeComp, InfoPersoRepository $repoInfoPerso)
     {
         $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
 
         $expPros = $repoExpPro->findAll();
-        $competences = $repoTypeComp->allCompSaufFonc();
         $competencesFonc = $repoCompetence->competenceFonc();
+        $allCompetences = $repoCompetence->findAll();
+        $typeComps = $repoTypeComp->allTypeCompSaufFonc();
 
         return $this->render('expertise/expertise.html.twig', [
             'page_name' => 'Expertise',
             'expPros' => $expPros,
-            'competences' => $competences,
             'competencesFonc' => $competencesFonc,
+            'typeComps' => $typeComps,
+            'allCompetences' => $allCompetences,
             'infoPerso' => $infoPerso,
         ]);
     }

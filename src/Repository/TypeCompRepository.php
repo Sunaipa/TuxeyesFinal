@@ -20,6 +20,27 @@ class TypeCompRepository extends ServiceEntityRepository
         parent::__construct($registry, TypeComp::class);
     }
 
+
+    public function allTypeCompSaufFonc()
+    {
+        $qb = $this->createQueryBuilder("tc");
+
+        $qb
+            ->where(
+                $qb->expr()->notlike('tc.categorie', ':competenceFonc')
+            )
+            ->setParameter('competenceFonc', 'Catégorie n°1')
+        ;
+
+        dump($qb->getQuery()->getSQL());
+
+        return $qb->getQuery()->getResult();
+    }
+
+
+
+
+/*
     public function allCompSaufFonc()
     {
         $qb = $this->createQueryBuilder("tc");
@@ -29,6 +50,8 @@ class TypeCompRepository extends ServiceEntityRepository
         ;
         return $qb->getQuery()->getResult();
     }
+
+   */
 
     // /**
     //  * @return TypeComp[] Returns an array of TypeComp objects

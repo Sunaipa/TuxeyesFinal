@@ -9,18 +9,55 @@
     <h1>Compétence</h1>
     <hr/>
     <h2>Compétence fonctionnelle</h2>
-    <ul>
-        {% for comp in competencesFonc %}
-            <li>{{ comp.titre }}</li>
+    <ul class="ulExpertise">
+        {% for competence in competencesFonc %}
+            <li class="liExpertise">{{ competence.titre }}</li>
         {% endfor %}
     </ul>
     <h2>Domaines de Compétences</h2>
-    {% for comps in competences %}
-        <h3>{{ comps.categorie }}</h3>
-        <ul>
-            {% for comp in comps.competences  %}
-                <li>{{ comp.titre }}</li>
-            {% endfor %}
-        </ul>
-    {% endfor %}
+    <div class="row">
+        {% for typeComp in typeComps %}
+            <div class="col-lg-6 colExpertise">
+                <div class="inColExpertise">
+                    <hr>
+                    <h3 class="typeComp">{{ typeComp.categorie }}</h3>
+                    <hr>
+                    <ul class="ulExpertise">
+                        {% for competence in allCompetences if competence.typeComp == typeComp %}
+                            <li class="liExpertise">{{ competence.titre }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="row">
+        <div class="col-md-12 ">
+            <h2>Expériences Professionnelles</h2>
+            <ul class="timeline">
+                {% for expPro in expPros %}
+                <li>
+                    <span class="timelineTitle">{{ expPro.titre }}</span>
+                    <p class="timelineDate">{{ expPro.date | date("m-Y") }}</p>
+                    <p class="timelineLieu">{{ expPro.lieu }}</p>
+                    <p class="timelineDescription">{{ expPro.description }}</p>
+                    <div class="expProHidden{{ expPro.id }}">
+                        {% for actionExpPro in expPro.actions %}
+                            <p hidden class="timelineActionExpPro">{{ actionExpPro.action }}</p>
+                            {% for DetailAction in actionExpPro.details %}
+                                <ul hidden class="timelineUlDetailAction">
+                                    <li class="timelineLiDetailAction">{{ DetailAction.detail }}</li>
+                                </ul>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                    <button class="expProButton{{ expPro.id }}" onclick="timelineToggle( {{ expPro.id }} )">Voir plus</button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/timeLine.js') }}"></script>
 {% endblock %}
