@@ -1,6 +1,24 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Connexion{% endblock %}
+{% block title %}Contact{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+{% endblock %}
 
 {% block body %}
+
+    <h1 class="h1Contact">L'entreprise</h1>
+    <hr class="hrContact">
+    <div>
+        <i class="far fa-fw fa-address-card"></i><span> &nbsp - {{ infoPerso.nom }} {{ infoPerso.prenom }}</span><br>
+        <i class="fas fa-fw fa-map-marker-alt "></i><span> &nbsp - {{ infoPerso.adresse }}</span><br>
+        <i class="fas fa-fw fa-at"></i><span> &nbsp - {{ infoPerso.mail }}</span><br>
+        <i class="fas fa-fw fa-mobile-alt"></i><span> &nbsp - {{ infoPerso.tel }}</span>
+    </div>
+    <br>
+    <h1 class="h1Contact">Formulaire de contact</h1>
+    <hr class="hrContact">
+
+    TODO
+
 {% endblock %}

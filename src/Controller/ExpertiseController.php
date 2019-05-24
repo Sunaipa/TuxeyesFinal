@@ -30,11 +30,12 @@ class ExpertiseController extends AbstractController
 
         return $this->render('expertise/expertise.html.twig', [
             'page_name' => 'Expertise',
+            'infoPerso' => $infoPerso,
             'expPros' => $expPros,
             'competencesFonc' => $competencesFonc,
             'typeComps' => $typeComps,
             'allCompetences' => $allCompetences,
-            'infoPerso' => $infoPerso,
+
         ]);
     }
 }

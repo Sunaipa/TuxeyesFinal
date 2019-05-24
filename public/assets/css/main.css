@@ -38,6 +38,7 @@ li{
 }
 .liExpertise{
     margin-left: 1.5rem;
+    font-size: 1.2em;
 }
 .colExpertise{
     margin-top: 2rem;
@@ -46,8 +47,8 @@ li{
 
 }
 .inColExpertise{
-    background-image: linear-gradient(#d2d2d2,white);
-    border-top:4px solid #fed136;
+
+
 }
 
 /** =========================================================================
@@ -94,6 +95,9 @@ ul.timeline > li:before {
 /** =========================================================================
 * Contenu de la TimeLine
  ============================================================================*/
+li.timeline{
+
+}
 .timelineTitle{
     font-size: larger;
     font-weight: bold;
@@ -102,7 +106,6 @@ ul.timeline > li:before {
 .timelineDate{
     float:right;
     font-weight: bold;
-    margin: 0;
 }
 .timelineLieu{
     font-weight: bold;
@@ -112,7 +115,8 @@ ul.timeline > li:before {
 .timelineDescription{
     font-style: italic;
     font-size: 1.3rem;
-    margin-bottom: 0;
+    margin-bottom: 0.5rem;
+    margin-left: 0.3rem;
 }
 .timelineActionExpPro{
     margin: 0;
@@ -123,6 +127,39 @@ ul.timeline > li:before {
 .timelineLiDetailAction{
     font-size: 1.1rem;
 }
-.timelineButton{
+.hideButtons{
+    font-size: 2em;
+    float: right;
+    margin-right: 0.5em;
+}
+/** =========================================================================
+* Contact
+ ============================================================================*/
+
+.h1Contact{
+    font-size: 2.8em;
+    text-align: left;
+}
+.hrContact{
+    margin-left: 0;
+    margin-right: 50%;
+}
+i{
+    font-size: 3.6em;
+}
+span{
+    font-size: 1.6em;
+}
+/** =========================================================================
+* connexion
+ ============================================================================*/
+.encadrement{
+    border: #222222;
+    background-color: #565656;
+    width: 50%;
+    height: 30%;
+    margin: auto;
+    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
+    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
 
 }

@@ -2,13 +2,11 @@
     margin: 0;
     padding: 0;
 }
-
 html, body{
     margin: 0;
     padding: 0;
     height: 100%;
 }
-
 .wrapper{
     min-height: 100%;
     position: relative;
@@ -57,7 +55,7 @@ footer{
     text-align: center;
 }
 .ContactInfo{
-    text-align: left;
+    text-align: center;
 }
 /** =========================================================================
 * NavBar Style
@@ -99,12 +97,20 @@ footer{
     font-weight: 700;
     color:#d5d5da;
 }
+/** =========================================================================
+* Icones
+ ============================================================================*/
 
-
-
+.iconeBase{
+    font-size: 2em;
+}
+.ContactInfo i{
+    margin-top: 0.3em;
+}
 /** =========================================================================
 * Mobile View
  ============================================================================*/
+
 @media (max-width:768px)
 {
     /**
@@ -123,9 +129,8 @@ footer{
         font-weight: 500;
     }
     .banner-text {
-        font-size: 25px;
+        font-size: 40px;
     }
-
     /**
     Footer
      */
@@ -147,3 +152,5 @@ footer{
         font-size: smaller;
     }
 }
+
+

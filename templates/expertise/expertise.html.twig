@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Index!{% endblock %}
+{% block title %}Expertise{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 {% endblock %}
@@ -9,7 +9,7 @@
     <h1>Compétence</h1>
     <hr/>
     <h2>Compétence fonctionnelle</h2>
-    <ul class="ulExpertise">
+    <ul class="ulcompFonc">
         {% for competence in competencesFonc %}
             <li class="liExpertise">{{ competence.titre }}</li>
         {% endfor %}
@@ -31,27 +31,30 @@
             </div>
         {% endfor %}
     </div>
+
     <div class="row">
-        <div class="col-md-12 ">
+        <div class="col-md-12 timeline">
             <h2>Expériences Professionnelles</h2>
             <ul class="timeline">
                 {% for expPro in expPros %}
-                <li>
+                <li class="timeline">
                     <span class="timelineTitle">{{ expPro.titre }}</span>
                     <p class="timelineDate">{{ expPro.date | date("m-Y") }}</p>
                     <p class="timelineLieu">{{ expPro.lieu }}</p>
                     <p class="timelineDescription">{{ expPro.description }}</p>
-                    <div class="expProHidden{{ expPro.id }}">
+                    <div class="expProHidden{{ expPro.id }} hidden">
                         {% for actionExpPro in expPro.actions %}
-                            <p hidden class="timelineActionExpPro">{{ actionExpPro.action }}</p>
+                            <p  class="timelineActionExpPro">{{ actionExpPro.action }}</p>
                             {% for DetailAction in actionExpPro.details %}
-                                <ul hidden class="timelineUlDetailAction">
+                                <ul  class="timelineUlDetailAction">
                                     <li class="timelineLiDetailAction">{{ DetailAction.detail }}</li>
                                 </ul>
                             {% endfor %}
                         {% endfor %}
                     </div>
-                    <button class="expProButton{{ expPro.id }}" onclick="timelineToggle( {{ expPro.id }} )">Voir plus</button>
+                    <i class="expProButton{{expPro.id}} hideButtons fas fa-angle-double-down " onclick="timelineToggle({{expPro.id}})"></i>
+                   <!-- <button class="expProButton{{expPro.id}} hideButtons" onclick="timelineToggle({{expPro.id}})"></button> -->
+                    <br><br>
                 </li>
                 {% endfor %}
             </ul>
@@ -60,4 +63,6 @@
 {% endblock %}
 {% block javascripts %}
     <script src="{{ asset('assets/js/timeLine.js') }}"></script>
+    <script src="{{ asset('assets/js/domaineComp.js') }}"></script>
+    <script src="{{ asset('assets/js/compFonc.js') }}"></script>
 {% endblock %}
