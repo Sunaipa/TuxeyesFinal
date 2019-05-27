@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class IndexController extends AbstractController
 {
-
+    const PAGE_NAME = "Consultant Réseau et Sécurité";
 
     /**
      * @param InfoPersoRepository $repoInfoPerso
@@ -21,7 +21,7 @@ class IndexController extends AbstractController
         $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
 
         return $this->render('index/index.html.twig', [
-            'page_name' => 'Consultant Réseau et Sécurité',
+            'page_name' => self::PAGE_NAME,
             'infoPerso' => $infoPerso,
         ]);
     }
@@ -35,7 +35,7 @@ class IndexController extends AbstractController
         $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
 
         return $this->render('index/index.html.twig', [
-            'page_name' => 'Consultant Réseau et Sécurité',
+            'page_name' => self::PAGE_NAME,
             'infoPerso' => $infoPerso,
     ]);
     }

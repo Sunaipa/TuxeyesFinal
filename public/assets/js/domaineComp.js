@@ -1,7 +1,7 @@
 $(document).on("scroll", function(){
     if ($(document).scrollTop() >= $(".colExpertise").scrollTop() )
     {
-        $(".colExpertise").fadeIn(3000)
+        $(".colExpertise").fadeIn(1000)
     }
     else
     {

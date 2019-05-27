@@ -11,6 +11,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ExpertiseController extends AbstractController
 {
+    const PAGE_NAME = "Expertise";
+
     /**
      * @Route("/expertise", name="expertise")
      * @param ExpProRepository $repoExpPro
@@ -29,7 +31,7 @@ class ExpertiseController extends AbstractController
         $typeComps = $repoTypeComp->allTypeCompSaufFonc();
 
         return $this->render('expertise/expertise.html.twig', [
-            'page_name' => 'Expertise',
+            'page_name' => self::PAGE_NAME,
             'infoPerso' => $infoPerso,
             'expPros' => $expPros,
             'competencesFonc' => $competencesFonc,

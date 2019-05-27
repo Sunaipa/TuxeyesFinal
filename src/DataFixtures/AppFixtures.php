@@ -55,6 +55,17 @@ class AppFixtures extends Fixture
          */
         $siteAdmin = new SiteAdmin();
         $siteAdmin->setUrl("www.google.fr");
+        $siteAdmin->setName("Google");
+        $manager->persist($siteAdmin);
+
+        $siteAdmin = new SiteAdmin();
+        $siteAdmin  ->setUrl("https://symfony.com")
+                    ->setName("symfony");
+        $manager->persist($siteAdmin);
+
+        $siteAdmin = new SiteAdmin();
+        $siteAdmin  ->setUrl("www.test.com")
+                    ->setName("test1");
         $manager->persist($siteAdmin);
 
         /**

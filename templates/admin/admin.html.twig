@@ -1,2 +1,36 @@
-admin
-TODO
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        <ul class="flex-container">
+
+            <li class="flex-item fixeBox">
+                <a class="linkSite" href="{{ path('adminNHCI') }}" >
+                    <p>Administration NHCI</p>
+                </a>
+            </li>
+
+            <li class="flex-item fixeBox" >
+                <a class="linkSite" href="{{ path('contact') }}" >
+                    <p>Messages</p>
+                </a>
+            </li>
+
+            {% for siteAdmin in allSiteAdmin %}
+                <li class="flex-item">
+                    <a class="topRightIcone" href="{{ path('adminDeleteSite',{ id: siteAdmin.id }) }}" >
+                        <i class="far fa-trash-alt"></i>
+                    </a>
+                    <a class="linkSite" href="{{ siteAdmin.url }}" >
+                        <p>{{ siteAdmin.name }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
