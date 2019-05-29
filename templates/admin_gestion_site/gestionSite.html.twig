@@ -1,0 +1,26 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+
+{% block body %}
+    <div>
+        <ul class="flex-container">
+
+            <li class="flex-item fixeBox">
+                <a class="linkSite" href="{{  path('admin_gestion_site_competence') }}" >
+                    <p>Compétence</p>
+                </a>
+            </li>
+
+            <li class="flex-item fixeBox" >
+                <a class="linkSite" href="{{ path('admin_gestion_site_expPro') }}" >
+                    <p>Expérience professionnelle</p>
+                </a>
+            </li>
+
+        </ul>
+    </div>
+{% endblock %}

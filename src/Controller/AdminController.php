@@ -14,6 +14,8 @@ class AdminController extends AbstractController
 
     /**
      * @Route("/admin", name="admin")
+     * @param SiteAdminRepository $repoSiteAdmin
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function index(SiteAdminRepository $repoSiteAdmin)
     {
@@ -26,30 +28,17 @@ class AdminController extends AbstractController
     }
 
     /**
+     * @Route("/admin/delete{id}", name="adminDeleteSite")
      * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/admin", name="adminNHCI")
      */
-    public function gestionSite()
-    {
-
-        return  $this->render('admin/TODO.html.twig', [
-            'page_name' => self::PAGE_NAME,
-        ]);
-    }
-
-    /**
-     * @return \Symfony\Component\HttpFoundation\Response
-     * @Route("/admin/delete", name="adminDeleteSite")
-     */
-    public function deleteSite(){
+    public function deleteSite($id, SiteAdminRepository $repoSiteAdmin){
         //TODO=> suppréssion du SiteAdmin
-
-        $test = $this->getParameter('id');
 
         return $this->render('admin/test.html.twig', [
             'page_name' => self::PAGE_NAME,
-            'test' => $test,
+            'test' => $id,
         ]);
     }
 
 }
+
