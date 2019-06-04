@@ -118,15 +118,11 @@ li.timeline{
     margin-bottom: 0.5rem;
     margin-left: 0.3rem;
 }
-.timelineActionExpPro{
+.timelineCorp{
     margin: 0;
     font-size: 1.4rem;
 }
-.timelineUlDetailAction{
-}
-.timelineLiDetailAction{
-    font-size: 1.1rem;
-}
+
 .hideButtons{
     font-size: 2em;
     float: right;

@@ -43,14 +43,7 @@
                     <p class="timelineLieu">{{ expPro.lieu }}</p>
                     <p class="timelineDescription">{{ expPro.description }}</p>
                     <div class="expProHidden{{ expPro.id }} hidden">
-                        {% for actionExpPro in expPro.actions %}
-                            <p  class="timelineActionExpPro">{{ actionExpPro.action }}</p>
-                            {% for DetailAction in actionExpPro.details %}
-                                <ul  class="timelineUlDetailAction">
-                                    <li class="timelineLiDetailAction">{{ DetailAction.detail }}</li>
-                                </ul>
-                            {% endfor %}
-                        {% endfor %}
+                            <p  class="timelineCorp">{{ expPro.corp | raw }}</p>
                     </div>
                     <i class="expProButton{{expPro.id}} hideButtons fas fa-angle-double-down " onclick="timelineToggle({{expPro.id}})"></i>
                    <!-- <button class="expProButton{{expPro.id}} hideButtons" onclick="timelineToggle({{expPro.id}})"></button> -->

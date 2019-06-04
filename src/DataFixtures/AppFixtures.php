@@ -18,35 +18,20 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         /**
-         * ExpPro + ActionExpPro + DetailAction
+         * ExpPro
          */
         for ($i = 1 ; $i <= 9 ; $i++)
         {
             $expPro = new ExpPro();
             $expPro->setTitre("Titre expPro n°$i")
                    ->setLieu("Je suis le lieu n°$i")
-                   ->setDate(new \DateTime("200$i-01-01"));
+                   ->setDate(new \DateTime("200$i-01-01"))
+                   ->setCorp("Test c'est le corp ! et voici un balise de retour à la ligne : <br/> la je suis apres  ");
             if($i == 1 || $i == 5)
             {
                 $expPro->setDescription("Je suis une Description de l'exp n°$i");
             }
-            for ($j = 1 ; $j <= 7 ; $j++)
-            {
-                $actionExpPro = new ActionExpPro();
-                $actionExpPro->setAction("Je suis l'action n°$j")
-                             ->setExpPro($expPro);
-                if ($j == 2 || $j == 4)
-                {
-                    for ($k = 1 ; $k <= 3 ; $k++)
-                    {
-                        $detailAction = new DetailAction();
-                        $detailAction->setDetail("je suis un detail, le n°$k")
-                                     ->setActionExpPro($actionExpPro);
-                        $manager->persist($detailAction);
-                    }
-                }
-                $manager->persist($actionExpPro);
-            }
+
             $manager->persist($expPro);
         }
 

@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,14 +37,9 @@ class ExpPro
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\ActionExpPro", mappedBy="expPro")
+     * @ORM\Column(type="string", length=6000)
      */
-    private $actions;
-
-    public function __construct()
-    {
-        $this->actions = new ArrayCollection();
-    }
+    private $corp;
 
     public function getId(): ?int
     {
@@ -101,33 +94,14 @@ class ExpPro
         return $this;
     }
 
-    /**
-     * @return Collection|ActionExpPro[]
-     */
-    public function getActions(): Collection
+    public function getCorp(): ?string
     {
-        return $this->actions;
+        return $this->corp;
     }
 
-    public function addAction(ActionExpPro $action): self
+    public function setCorp(string $corp): self
     {
-        if (!$this->actions->contains($action)) {
-            $this->actions[] = $action;
-            $action->setExpPro($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAction(ActionExpPro $action): self
-    {
-        if ($this->actions->contains($action)) {
-            $this->actions->removeElement($action);
-            // set the owning side to null (unless already changed)
-            if ($action->getExpPro() === $this) {
-                $action->setExpPro(null);
-            }
-        }
+        $this->corp = $corp;
 
         return $this;
     }
