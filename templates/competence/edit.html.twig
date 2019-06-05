@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit Competence{% endblock %}
+
+{% block body %}
+    <h1>Edition de compétence</h1>
+
+    {{ include('competence/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_comp_show', {'id': idCategorie }) }}">Retour</a>
+    <p></p>
+    {{ include('competence/_delete_form.html.twig') }}
+{% endblock %}

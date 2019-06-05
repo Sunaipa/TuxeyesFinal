@@ -14,7 +14,7 @@ class AdminGestionSiteController extends AbstractController
      */
     public function index()
     {
-        return $this->render('admin_gestion_site/gestionSite.html.twig', [
+        return $this->render('admin_gestion_site/gestionNHCI.html.twig', [
             'page_name' => self::PAGE_NAME,
         ]);
     }

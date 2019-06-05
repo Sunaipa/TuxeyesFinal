@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New TypeComp{% endblock %}
+
+{% block body %}
+    <h1>Création de catégorie</h1>
+
+    {{ include('type_comp/_form.html.twig') }}
+
+    <a href="{{ path('type_comp_index') }}">Retour</a>
+{% endblock %}

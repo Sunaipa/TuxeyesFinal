@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit TypeComp{% endblock %}
+
+{% block body %}
+    <h1>Edition de catégorie</h1>
+
+    {{ include('type_comp/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('type_comp_index') }}">Retour</a>
+
+    {{ include('type_comp/_delete_form.html.twig') }}
+{% endblock %}

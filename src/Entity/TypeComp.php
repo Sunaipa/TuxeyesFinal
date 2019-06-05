@@ -80,4 +80,11 @@ class TypeComp
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return self::getCategorie() ;
+    }
+
+
 }

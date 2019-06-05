@@ -10,27 +10,32 @@
         <ul class="flex-container">
 
             <li class="flex-item fixeBox">
-                <a class="linkSite" href="{{ path('admin_gestion_site') }}" >
+                <a class="linkSite" href="{{ path('gestionNHCI') }}" >
                     <p>Administration NHCI</p>
                 </a>
             </li>
 
             <li class="flex-item fixeBox" >
-                <a class="linkSite" href="{{ path('contact') }}" >
+                <a class="linkSite" href="{{ path('info_contact_index') }}" >
                     <p>Messages</p>
                 </a>
             </li>
 
             {% for siteAdmin in allSiteAdmin %}
                 <li class="flex-item">
-                    <a class="topRightIcone" href="{{ path('adminDeleteSite',{ id: siteAdmin.id }) }}" >
-                        <i class="far fa-trash-alt"></i>
-                    </a>
+                    {{ include('site_admin/_delete_form.html.twig') }}
                     <a class="linkSite" href="{{ siteAdmin.url }}" >
                         <p>{{ siteAdmin.name }}</p>
                     </a>
                 </li>
             {% endfor %}
+
+            <li class="flex-item fixeBox" >
+                <a class="linkSite" href="{{ path('site_admin_new') }}" >
+                   <button class="btn btn-primary">+</button>
+                </a>
+            </li>
+
         </ul>
     </div>
 {% endblock %}

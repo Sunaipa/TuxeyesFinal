@@ -2,15 +2,14 @@
 
 namespace App\Controller;
 
-use App\Entity\ActionExpPro;
-use App\Entity\DetailAction;
-use App\Entity\ExpPro;
-use App\Form\ActionExpProType;
-use App\Form\DetailActionType;
-use App\Form\ExpProType;
+use App\Entity\InfoContact;
+use App\Form\InfoContactType;
 use App\Repository\InfoPersoRepository;
-use function Sodium\add;
+use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ContactController extends AbstractController
@@ -20,27 +19,38 @@ class ContactController extends AbstractController
     /**
      * @Route("/contact", name="contact")
      */
-    public function index(InfoPersoRepository $repoInfoPerso)
+    public function index(Request $request, ObjectManager $manager, InfoPersoRepository $repoInfoPerso)
     {
         $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
 
-        $expert = new ExpPro();
-        $action = new ActionExpPro();
-        $detail = new DetailAction();
+        /*
+         * Form
+         */
+        $infoContact = new InfoContact();
+        $form = $this->createForm(InfoContactType::class, $infoContact);
 
-        $form = $this->createForm(ExpProType::class, $expert);
-        $form2 = $this->createForm(ActionExpProType::class, $action);
-        $form3 = $this->createForm(DetailActionType::class, $detail);
+        /**
+         * Gestion réponse du Form
+         */
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $infoContact->setDateEnvoi( new \DateTime() );
 
+            $manager->persist($infoContact);
+            $manager->flush();
 
+            $this->addFlash("success", "Message bien envoyé" );
+
+            return $this->redirectToRoute('contact');
+        }
+        else if($form->isSubmitted() ) {
+            $this->addFlash("echec", "Echec de l'envoi" );
+        }
 
         return $this->render('contact/contact.html.twig', [
             'page_name' => self::PAGE_NAME,
             'infoPerso' => $infoPerso,
-            'formTest'  => $form->createView(),
-            'formTest2'  => $form2->createView(),
-            'formTest3'  => $form3->createView(),
-
+            'form' => $form->createView()
         ]);
     }
 }

@@ -1,0 +1,34 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Catégorie{% endblock %}
+
+{% block body %}
+    <h1>Catégorie</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Categorie</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_comp in type_comps %}
+            <tr>
+                <td>{{ type_comp.id }}</td>
+                <td>{{ type_comp.categorie }}</td>
+                <td>
+                    <a href="{{ path('type_comp_show', {'id': type_comp.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_comp_new') }}">Ajouter</a>
+{% endblock %}

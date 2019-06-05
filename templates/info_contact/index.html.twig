@@ -1,0 +1,42 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}InfoContact index{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/Crud.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Tel</th>
+                <th>Entreprise</th>
+                <th>Mail</th>
+                <th>DateEnvoi</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info_contact in info_contacts %}
+            <tr>
+                <td>{{ info_contact.id }}</td>
+                <td>{{ info_contact.nom }}</td>
+                <td>{{ info_contact.tel }}</td>
+                <td>{{ info_contact.entreprise }}</td>
+                <td>{{ info_contact.mail }}</td>
+                <td>{{ info_contact.dateEnvoi ? info_contact.dateEnvoi|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('info_contact_show', {'id': info_contact.id}) }}">Voir Message</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

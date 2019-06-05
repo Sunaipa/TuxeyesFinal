@@ -29,7 +29,7 @@ class CompetenceRepository extends ServiceEntityRepository
             ->where(
                 $qb->expr()->like('tc.categorie', ':competenceFonc')
             )
-            ->setParameter('competenceFonc', 'Catégorie n°1')
+            ->setParameter('competenceFonc', 'Compétence fonctionnelle')
             ;
         return $qb->getQuery()->getResult();
     }

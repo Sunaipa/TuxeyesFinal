@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New Site{% endblock %}
+
+{% block body %}
+    <h1>Ajouté un site</h1>
+
+    {{ include('site_admin/_form.html.twig') }}
+
+    <a href="{{ path('admin') }}">Retour</a>
+{% endblock %}

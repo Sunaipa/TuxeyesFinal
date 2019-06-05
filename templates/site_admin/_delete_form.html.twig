@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('site_admin_delete', {'id': siteAdmin.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ siteAdmin.id) }}">
+    <button class="btn topRightIcone "><i class="far fa-trash-alt"></i></button>
+</form>

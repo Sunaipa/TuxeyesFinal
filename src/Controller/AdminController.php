@@ -3,9 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\SiteAdmin;
+use App\Form\SiteAdminType;
 use App\Repository\SiteAdminRepository;
-use http\Env\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class AdminController extends AbstractController
@@ -28,16 +30,53 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/admin/delete{id}", name="adminDeleteSite")
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @Route("/admin/gestion-site", name="gestionNHCI")
      */
-    public function deleteSite($id, SiteAdminRepository $repoSiteAdmin){
-        //TODO=> suppréssion du SiteAdmin
-
-        return $this->render('admin/test.html.twig', [
+    public function gestionNHCI()
+    {
+        return $this->render('admin/gestionNHCI.html.twig', [
             'page_name' => self::PAGE_NAME,
-            'test' => $id,
         ]);
+    }
+
+    /**
+     * @Route("/new", name="site_admin_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
+     */
+    public function new(Request $request): Response
+    {
+        $siteAdmin = new SiteAdmin();
+        $form = $this->createForm(SiteAdminType::class, $siteAdmin);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($siteAdmin);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin');
+        }
+
+        return $this->render('site_admin/new.html.twig', [
+            'page_name' => self::PAGE_NAME,
+            'site_admin' => $siteAdmin,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/{id}", name="site_admin_delete", methods={"DELETE"})
+     */
+    public function delete(Request $request, SiteAdmin $siteAdmin): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$siteAdmin->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($siteAdmin);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin');
     }
 
 }

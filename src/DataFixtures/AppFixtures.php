@@ -6,6 +6,7 @@ use App\Entity\ActionExpPro;
 use App\Entity\Competence;
 use App\Entity\DetailAction;
 use App\Entity\ExpPro;
+use App\Entity\InfoContact;
 use App\Entity\InfoPerso;
 use App\Entity\SiteAdmin;
 use App\Entity\TypeComp;
@@ -17,6 +18,24 @@ class AppFixtures extends Fixture
 {
     public function load(ObjectManager $manager)
     {
+        /**
+         * InfoContact
+         */
+        for ($i = 1 ; $i <= 4 ; $i++)
+        {
+            $infoContact = new InfoContact();
+            $infoContact->setNom("Mr.numéro $i")
+                        ->setMail("monmail@$i.com")
+                        ->setEntreprise("Mon entreprise n°$i")
+                        ->setDateEnvoi(new \DateTime("200$i-01-01"))
+                        ->setMessage("Je suis un message pas tres long et je suis le numéro : $i");
+            if ($i == 1 )
+            {
+                $infoContact->setTel("06060606 $i");
+            }
+            $manager->persist($infoContact);
+        }
+
         /**
          * ExpPro
          */
