@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit ExpPro{% endblock %}
+
+{% block body %}
+    <h1>Editer une expérience professionnelle</h1>
+
+    {{ include('exp_pro/_form.html.twig', {'button_label': 'Mise à jour'}) }}
+
+    <a href="{{ path('exp_pro_index') }}">Retour</a>
+    <p></p>
+    {{ include('exp_pro/_delete_form.html.twig') }}
+{% endblock %}

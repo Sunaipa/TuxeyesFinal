@@ -43,7 +43,7 @@
                     <p class="timelineLieu">{{ expPro.lieu }}</p>
                     <p class="timelineDescription">{{ expPro.description }}</p>
                     <div class="expProHidden{{ expPro.id }} hidden">
-                            <p  class="timelineCorp">{{ expPro.corp | raw }}</p>
+                            <p  class="timelineCorp">{{ expPro.corp | nl2br  }}</p>
                     </div>
                     <i class="expProButton{{expPro.id}} hideButtons fas fa-angle-double-down " onclick="timelineToggle({{expPro.id}})"></i>
                    <!-- <button class="expProButton{{expPro.id}} hideButtons" onclick="timelineToggle({{expPro.id}})"></button> -->

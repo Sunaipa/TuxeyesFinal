@@ -9,7 +9,6 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
  * @method ExpPro|null find($id, $lockMode = null, $lockVersion = null)
  * @method ExpPro|null findOneBy(array $criteria, array $orderBy = null)
- * @method ExpPro[]    findAll()
  * @method ExpPro[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class ExpProRepository extends ServiceEntityRepository
@@ -18,6 +17,19 @@ class ExpProRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, ExpPro::class);
     }
+
+    public function findAll()
+    {
+        return $this->createQueryBuilder('i')
+            ->orderBy('i.date', 'DESC')
+            ->getQuery()
+            ->getResult()
+            ;
+    }
+
+
+
+
 
     // /**
     //  * @return ExpPro[] Returns an array of ExpPro objects

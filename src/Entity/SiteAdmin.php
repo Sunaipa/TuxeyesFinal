@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SiteAdminRepository")
@@ -18,11 +19,14 @@ class SiteAdmin
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Url(message="Url invalide (Ne pas oublier le protocol (http://, ...) )", protocols = {"http", "https", "ftp"} )
+     * @Assert\NotBlank(message="Une url doit etre renseigné !")
      */
     private $url;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Le nom est obligatoire !")
      */
     private $name;
 

@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Edit InfoPerso{% endblock %}
+
+{% block body %}
+    <h1>Edition</h1>
+
+    {{ include('info_perso/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
+
+    <a href="{{ path('info_perso_index') }}">Retour</a>
+{% endblock %}

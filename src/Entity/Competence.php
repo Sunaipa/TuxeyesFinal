@@ -19,6 +19,8 @@ class Competence
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=255, minMessage="Texte de compétence trop court !", maxMessage="Text de compétence trop long !")
+     * @Assert\NotBlank(message="Le champ est obligatoire !")
      */
     private $titre;
 

@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}ExpPro index{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/Crud.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Expérience professionnelle</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Titre</th>
+                <th>Lieu</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for exp_pro in exp_pros %}
+            <tr>
+                <td>{{ exp_pro.id }}</td>
+                <td>{{ exp_pro.date ? exp_pro.date|date('Y-m-d') : '' }}</td>
+                <td>{{ exp_pro.titre }}</td>
+                <td>{{ exp_pro.lieu }}</td>
+                <td>{{ exp_pro.description }}</td>
+                <td>
+                    <a href="{{ path('exp_pro_edit', {'id': exp_pro.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('exp_pro_new') }}">Nouveau</a>
+{% endblock %}

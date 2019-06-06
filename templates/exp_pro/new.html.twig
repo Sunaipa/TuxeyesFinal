@@ -1,0 +1,11 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}New expPro{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle expérience professionnelle</h1>
+
+    {{ include('exp_pro/_form.html.twig') }}
+
+    <a href="{{ path('exp_pro_index') }}">Retour</a>
+{% endblock %}

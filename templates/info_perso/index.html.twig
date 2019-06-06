@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}InfoPerso index{% endblock %}
+
+{% block body %}
+    <h1>InfoPerso index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Mail</th>
+                <th>Tel</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for info_perso in info_persos %}
+            <tr>
+                <td>{{ info_perso.id }}</td>
+                <td>{{ info_perso.nom }}</td>
+                <td>{{ info_perso.prenom }}</td>
+                <td>{{ info_perso.adresse }}</td>
+                <td>{{ info_perso.mail }}</td>
+                <td>{{ info_perso.tel }}</td>
+                <td>
+                    <a href="{{ path('info_perso_edit', {'id': info_perso.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="7">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
