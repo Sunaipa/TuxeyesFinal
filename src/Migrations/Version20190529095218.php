@@ -44,4 +44,5 @@ final class Version20190529095218 extends AbstractMigration
         $this->addSql('DROP TABLE type_comp');
         $this->addSql('DROP TABLE user');
     }
+
 }

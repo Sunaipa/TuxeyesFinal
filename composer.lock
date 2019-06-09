@@ -4,8 +4,75 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "560e380139ff1c6cac901a4a977f96a7",
+    "content-hash": "c2bc4cba739bad7438cf26525feb08ec",
     "packages": [
+        {
+            "name": "core23/antispam-bundle",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/core23/AntiSpamBundle.git",
+                "reference": "8a5fe8afb0c92e4954daa0a00eadf35c5c8a03ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/core23/AntiSpamBundle/zipball/8a5fe8afb0c92e4954daa0a00eadf35c5c8a03ec",
+                "reference": "8a5fe8afb0c92e4954daa0a00eadf35c5c8a03ec",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pcre": "*",
+                "php": "^7.2",
+                "symfony/config": "^3.4 || ^4.2",
+                "symfony/dependency-injection": "^3.4 || ^4.2",
+                "symfony/event-dispatcher": "^3.4 || ^4.2",
+                "symfony/expression-language": "^3.4 || ^4.2",
+                "symfony/form": "^3.4 || ^4.2",
+                "symfony/framework-bundle": "^3.4 || ^4.2",
+                "symfony/http-foundation": "^3.4 || ^4.2",
+                "symfony/http-kernel": "^3.4 || ^4.2",
+                "symfony/options-resolver": "^3.4 || ^4.2",
+                "symfony/translation": "^3.4 || ^4.2",
+                "twig/twig": "^2.4"
+            },
+            "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.2",
+                "sllh/composer-lint": "^1.0"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Core23\\AntiSpamBundle\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christian Gripp",
+                    "email": "mail@core23.de"
+                }
+            ],
+            "description": "This bundle provides some basic features to reduce spam.",
+            "homepage": "https://core23.de",
+            "keywords": [
+                "antispam",
+                "bundle",
+                "form",
+                "protection",
+                "spam",
+                "symfony",
+                "twig"
+            ],
+            "time": "2019-03-17T17:17:26+00:00"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.6.1",

@@ -1,4 +1,7 @@
 {
+    "core23/antispam-bundle": {
+        "version": "1.0.0"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {

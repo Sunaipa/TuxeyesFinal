@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\SiteAdmin;
+use App\Entity\User;
 use App\Form\SiteAdminType;
 use App\Repository\SiteAdminRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -51,6 +52,7 @@ class AdminController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($siteAdmin);
             $entityManager->flush();

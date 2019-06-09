@@ -19,6 +19,16 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         /**
+         * test user
+         */
+        /*
+        $pass = "123";
+        $user = new User();
+        $user->setEmail("haha@voila.fr")
+             ->setUsername("moi")
+             ->setPassword($pass->)
+*/
+        /**
          * InfoContact
          */
         for ($i = 1 ; $i <= 4 ; $i++)

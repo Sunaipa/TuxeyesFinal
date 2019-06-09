@@ -1,0 +1,13 @@
+core23_antispam:
+  # Time protection
+  time:
+    min: 10
+    max: 60
+    global: true
+
+  # Honeypot protection
+  honeypot:
+      field: 'email_address'
+      class: 'hide-me'
+      global: true
+      provider: 'core23_antispam.provider.session'
