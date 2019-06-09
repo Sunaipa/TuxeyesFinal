@@ -19,7 +19,7 @@ class InfoContactType extends AbstractType
             ->add('Entreprise')
             ->add('Mail')
             ->add('Message', TextareaType::class)
-            ->add('success', SubmitType::class)
+            ->add('Envoyer', SubmitType::class)
         ;
     }
 

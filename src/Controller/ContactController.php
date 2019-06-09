@@ -18,6 +18,11 @@ class ContactController extends AbstractController
 
     /**
      * @Route("/contact", name="contact")
+     * @param Request $request
+     * @param ObjectManager $manager
+     * @param InfoPersoRepository $repoInfoPerso
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Exception
      */
     public function index(Request $request, ObjectManager $manager, InfoPersoRepository $repoInfoPerso)
     {

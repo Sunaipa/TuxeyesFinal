@@ -3,13 +3,15 @@
  ============================================================================*/
 *
 {
-    font-family: "Tahoma" ;
+    font-family: "Lucida Sans Unicode" ;
+    <!-- Lucida Console  -->
+
 }
 h1 {
-
+    font-family: "Lucida Console" ;
     text-align: center;
-    color: #a61f1f;
-    font-weight: revert;
+    color: #26241F;
+    font-weight: bolder;
     font-size: 3.5rem;
 }
 h2{
@@ -85,11 +87,11 @@ ul.timeline > li {
  */
 ul.timeline > li:before {
     content: ' ';
-    background: white;
+    background: #F2EBDF;
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    border: 3px solid #22c0e8;
+    border: 3px solid #55734D;
     left: 20px;
     width: 20px;
     height: 20px;
@@ -149,17 +151,4 @@ i{
 }
 .infoContact{
     font-size: 1.3em;
-}
-/** =========================================================================
-* connexion
- ============================================================================*/
-.encadrement{
-    border: #222222;
-    background-color: #565656;
-    width: 50%;
-    height: 30%;
-    margin: auto;
-    margin-top: 50vh; /* poussé de la moitié de hauteur de viewport */
-    transform: translateY(-50%); /* tiré de la moitié de sa propre hauteur */
-
 }

@@ -7,7 +7,7 @@ security:
         in_memory:
             memory:
                 users:
-                    Takuan_admin: { password: '$2y$13$PM.ELqwUfMnRmxOqkxw1de7mp2KrTIDks0D0tE70tFd7r1xi5gBGu', roles: ['ROLE_ADMIN'] }
+                    takuan: { password: '$2y$13$RJWEtFdhARWc3eobx7l4ruoGGbfCONArlU9L/AqQB/5jXSM3c4GJC', roles: ['ROLE_ADMIN'] }
 
     firewalls:
         dev:

@@ -27,8 +27,9 @@ class IndexController extends AbstractController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
      * @Route("/", name="home")
+     * @param InfoPersoRepository $repoInfoPerso
+     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function home(InfoPersoRepository $repoInfoPerso)
     {

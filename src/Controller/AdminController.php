@@ -41,7 +41,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="site_admin_new", methods={"GET","POST"})
+     * @Route("admin/site/new", name="site_admin_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -68,7 +68,10 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="site_admin_delete", methods={"DELETE"})
+     * @Route("admin/site/{id}", name="site_admin_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param SiteAdmin $siteAdmin
+     * @return Response
      */
     public function delete(Request $request, SiteAdmin $siteAdmin): Response
     {

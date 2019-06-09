@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/exp/pro")
+ * @Route("admin/exp-pro")
  */
 class ExpProController extends AbstractController
 {
@@ -31,6 +31,8 @@ class ExpProController extends AbstractController
 
     /**
      * @Route("/new", name="exp_pro_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -55,6 +57,9 @@ class ExpProController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="exp_pro_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param ExpPro $expPro
+     * @return Response
      */
     public function edit(Request $request, ExpPro $expPro): Response
     {
@@ -78,6 +83,9 @@ class ExpProController extends AbstractController
 
     /**
      * @Route("/{id}", name="exp_pro_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param ExpPro $expPro
+     * @return Response
      */
     public function delete(Request $request, ExpPro $expPro): Response
     {

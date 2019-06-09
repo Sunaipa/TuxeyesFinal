@@ -17,6 +17,7 @@
                 <th>Mail</th>
                 <th>DateEnvoi</th>
                 <th>actions</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +31,9 @@
                 <td>{{ info_contact.dateEnvoi ? info_contact.dateEnvoi|date('Y-m-d') : '' }}</td>
                 <td>
                     <a href="{{ path('info_contact_show', {'id': info_contact.id}) }}">Voir Message</a>
+                </td>
+                <td>
+                    {{ include('info_contact/_delete_form.html.twig') }}
                 </td>
             </tr>
         {% else %}

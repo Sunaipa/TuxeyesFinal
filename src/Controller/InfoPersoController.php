@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/info/perso")
+ * @Route("admin/info-perso")
  */
 class InfoPersoController extends AbstractController
 {
@@ -19,6 +19,8 @@ class InfoPersoController extends AbstractController
 
     /**
      * @Route("/", name="info_perso_index", methods={"GET"})
+     * @param InfoPersoRepository $infoPersoRepository
+     * @return Response
      */
     public function index(InfoPersoRepository $infoPersoRepository): Response
     {
@@ -30,6 +32,9 @@ class InfoPersoController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="info_perso_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param InfoPerso $infoPerso
+     * @return Response
      */
     public function edit(Request $request, InfoPerso $infoPerso): Response
     {

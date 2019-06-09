@@ -29,7 +29,7 @@ class TypeCompRepository extends ServiceEntityRepository
             ->where(
                 $qb->expr()->notlike('tc.categorie', ':competenceFonc')
             )
-            ->setParameter('competenceFonc', 'Catégorie n°1')
+            ->setParameter('competenceFonc', 'Compétence fonctionnelle')
         ;
 
         dump($qb->getQuery()->getSQL());

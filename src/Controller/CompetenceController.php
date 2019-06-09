@@ -20,6 +20,8 @@ class CompetenceController extends AbstractController
 
     /**
      * @Route("/new", name="competence_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -50,6 +52,9 @@ class CompetenceController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="competence_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param Competence $competence
+     * @return Response
      */
     public function edit(Request $request, Competence $competence): Response
     {
@@ -76,6 +81,9 @@ class CompetenceController extends AbstractController
 
     /**
      * @Route("/{id}", name="competence_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param Competence $competence
+     * @return Response
      */
     public function delete(Request $request, Competence $competence): Response
     {

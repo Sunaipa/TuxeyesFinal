@@ -19,6 +19,8 @@ class TypeCompController extends AbstractController
 
     /**
      * @Route("/", name="type_comp_index", methods={"GET"})
+     * @param TypeCompRepository $typeCompRepository
+     * @return Response
      */
     public function index(TypeCompRepository $typeCompRepository): Response
     {
@@ -30,6 +32,8 @@ class TypeCompController extends AbstractController
 
     /**
      * @Route("/new", name="type_comp_new", methods={"GET","POST"})
+     * @param Request $request
+     * @return Response
      */
     public function new(Request $request): Response
     {
@@ -54,6 +58,8 @@ class TypeCompController extends AbstractController
 
     /**
      * @Route("/{id}", name="type_comp_show", methods={"GET"})
+     * @param TypeComp $typeComp
+     * @return Response
      */
     public function show(TypeComp $typeComp): Response
     {
@@ -65,6 +71,9 @@ class TypeCompController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="type_comp_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param TypeComp $typeComp
+     * @return Response
      */
     public function edit(Request $request, TypeComp $typeComp): Response
     {
@@ -88,6 +97,9 @@ class TypeCompController extends AbstractController
 
     /**
      * @Route("/{id}", name="type_comp_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param TypeComp $typeComp
+     * @return Response
      */
     public function delete(Request $request, TypeComp $typeComp): Response
     {

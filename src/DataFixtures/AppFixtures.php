@@ -19,16 +19,6 @@ class AppFixtures extends Fixture
     public function load(ObjectManager $manager)
     {
         /**
-         * test user
-         */
-        /*
-        $pass = "123";
-        $user = new User();
-        $user->setEmail("haha@voila.fr")
-             ->setUsername("moi")
-             ->setPassword($pass->)
-*/
-        /**
          * InfoContact
          */
         for ($i = 1 ; $i <= 4 ; $i++)
@@ -81,17 +71,6 @@ class AppFixtures extends Fixture
         $siteAdmin  ->setUrl("www.test.com")
                     ->setName("test1");
         $manager->persist($siteAdmin);
-
-        /**
-         * InfoPerso
-         */
-        $infoPerso = new InfoPerso();
-        $infoPerso->setNom("Haumey")
-                  ->setPrenom("Nicolas")
-                  ->setAdresse("une rue a Nantes")
-                  ->setMail("0sunaipa@gmail.com")
-                  ->setTel("0684722239");
-        $manager->persist($infoPerso);
 
         /*
          * Competence et TypeComp
