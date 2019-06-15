@@ -24,10 +24,11 @@ class ContactController extends AbstractController
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      * @throws \Exception
      */
-    public function index(Request $request, ObjectManager $manager, InfoPersoRepository $repoInfoPerso)
+    public function index(Request $request,
+                          ObjectManager $manager,
+                          InfoPersoRepository $repoInfoPerso)
     {
-        $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
-
+        $infoPerso = $repoInfoPerso->findOneBy(["id" => 1]);
         /*
          * Form
          */
@@ -45,13 +46,11 @@ class ContactController extends AbstractController
             $manager->flush();
 
             $this->addFlash("success", "Message bien envoyé" );
-
             return $this->redirectToRoute('contact');
         }
         else if($form->isSubmitted() ) {
             $this->addFlash("echec", "Echec de l'envoi" );
         }
-
         return $this->render('contact/contact.html.twig', [
             'page_name' => self::PAGE_NAME,
             'infoPerso' => $infoPerso,

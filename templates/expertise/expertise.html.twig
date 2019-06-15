@@ -46,7 +46,6 @@
                             <p  class="timelineCorp">{{ expPro.corp | nl2br  }}</p>
                     </div>
                     <i class="expProButton{{expPro.id}} hideButtons fas fa-angle-double-down " onclick="timelineToggle({{expPro.id}})"></i>
-                   <!-- <button class="expProButton{{expPro.id}} hideButtons" onclick="timelineToggle({{expPro.id}})"></button> -->
                     <br><br>
                 </li>
                 {% endfor %}
@@ -57,5 +56,4 @@
 {% block javascripts %}
     <script src="{{ asset('assets/js/timeLine.js') }}"></script>
     <script src="{{ asset('assets/js/domaineComp.js') }}"></script>
-    <script src="{{ asset('assets/js/compFonc.js') }}"></script>
 {% endblock %}

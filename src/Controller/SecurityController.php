@@ -14,9 +14,6 @@ class SecurityController extends AbstractController
      */
     public function connexion() {
 
-
-
-
         return $this->render('security/login.html.twig', [
             'page_name' => self::PAGE_NAME,
         ]);

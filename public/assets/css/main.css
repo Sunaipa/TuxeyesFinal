@@ -101,13 +101,9 @@ ul.timeline > li:before {
 /** =========================================================================
 * Contenu de la TimeLine
  ============================================================================*/
-li.timeline{
-
-}
 .timelineTitle{
     font-size: larger;
     font-weight: bold;
-    margin: 0;
 }
 .timelineDate{
     float:right;
@@ -151,4 +147,38 @@ i{
 }
 .infoContact{
     font-size: 1.3em;
+}
+/** =========================================================================
+* Mobile View
+ ============================================================================*/
+
+@media (max-width:768px)
+{
+    /**
+    Timeline
+     */
+    .timelineDate{
+        font-size: 1rem;
+        margin-top: 0.5rem;  /* Pour rester alligné */
+        float: revert;
+    }
+    .timelineTitle{
+        font-size: large;
+    }
+    .timelineLieu{
+        font-size: 1rem;
+        margin: 0 auto 0.4rem;
+    }
+    .timelineDescription{
+        font-size: 1rem;
+    }
+    .timelineCorp{
+        margin: 0;
+        font-size: 1rem;
+    }
+    .hideButtons{
+        font-size: 2em;
+        float: right;
+        margin-right: 0.5em;
+    }
 }

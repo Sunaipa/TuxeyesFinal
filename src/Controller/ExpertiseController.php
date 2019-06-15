@@ -21,9 +21,12 @@ class ExpertiseController extends AbstractController
      * @param InfoPersoRepository $repoInfoPerso
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function index(ExpProRepository $repoExpPro, CompetenceRepository $repoCompetence, TypeCompRepository $repoTypeComp, InfoPersoRepository $repoInfoPerso)
+    public function index(ExpProRepository $repoExpPro,
+                          CompetenceRepository $repoCompetence,
+                          TypeCompRepository $repoTypeComp,
+                          InfoPersoRepository $repoInfoPerso)
     {
-        $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
+        $infoPerso = $repoInfoPerso->findOneBy(["id" => 1]);
 
         $expPros = $repoExpPro->findAll();
         $competencesFonc = $repoCompetence->competenceFonc();
@@ -37,7 +40,6 @@ class ExpertiseController extends AbstractController
             'competencesFonc' => $competencesFonc,
             'typeComps' => $typeComps,
             'allCompetences' => $allCompetences,
-
         ]);
     }
 }

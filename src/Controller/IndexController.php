@@ -18,7 +18,7 @@ class IndexController extends AbstractController
      */
     public function index(InfoPersoRepository $repoInfoPerso)
     {
-        $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
+        $infoPerso = $repoInfoPerso->findOneBy(["id" => 1]);
 
         return $this->render('index/index.html.twig', [
             'page_name' => self::PAGE_NAME,
@@ -33,7 +33,7 @@ class IndexController extends AbstractController
      */
     public function home(InfoPersoRepository $repoInfoPerso)
     {
-        $infoPerso = $repoInfoPerso->findOneBy(["nom" => "Haumey"]);
+        $infoPerso = $repoInfoPerso->findOneBy(["id" => 1]);
 
         return $this->render('index/index.html.twig', [
             'page_name' => self::PAGE_NAME,

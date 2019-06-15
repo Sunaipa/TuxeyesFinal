@@ -38,7 +38,8 @@ class InfoContact
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Email(message ="Adresse E-mail non valide")
+     * @Assert\Email(message ="Adresse E-mail non valide",
+     *               mode ="html5" )
      * @Assert\Length(max=255, maxMessage="Adresse E-mail trop longue")
      * @Assert\NotBlank(message="Un mail est obligatoire !")
      */

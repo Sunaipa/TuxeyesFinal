@@ -23,10 +23,6 @@ final class Version20190609144706 extends AbstractMigration
 
         $this->addSql("INSERT INTO info_perso ( id, nom, prenom, adresse, mail, tel) VALUES ( 1, 'Haumey', 'Nicolas', '4 avenue d\'alden park'  , 'nicolas.haumey@hotmail.fr', '0686953352' )");
         $this->addSql("INSERT INTO type_comp (id, categorie) VALUES (1, 'Compétence fonctionnelle' ) ");
-        /*
-         * INSERT INTO `type_comp` (`id`, `categorie`) VALUES
-    (6, 'Compétence fonctionnelle')
-         */
 
     }
 

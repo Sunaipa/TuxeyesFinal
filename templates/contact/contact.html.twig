@@ -5,8 +5,6 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
 {% endblock %}
 
-{% form_theme form 'bootstrap_4_layout.html.twig' %}
-
 {% block body %}
 
     {% for message in app.flashes('success') %}
